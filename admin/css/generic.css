@@ -1,0 +1,115 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+}
+.wrapper{
+
+height:  100%;
+}
+.topbar{
+
+height: 32px;
+
+background: #555555;
+
+position:  absolute;
+
+top:  0;
+
+z-index:  999999;
+
+width:  100%;
+}
+.main{
+
+overflow: hidden;
+
+padding: 32px 0px;
+
+height:  100%;
+}
+.sidebar{
+
+float: left;
+
+width: 15%;
+
+height:  100%;
+
+background: #cccccc;
+}
+.sidebar ul{
+
+list-style:  none;
+}
+.sidebar ul li{
+
+border-top: 1px solid #ffffff;
+}
+.sidebar ul li a{
+
+padding: 5px 10px;
+
+display:  block;
+
+text-decoration: none;
+
+color:  #111111;
+}
+.sidebar ul li ul{
+
+display:  none;
+}
+.sidebar ul li:hover ul{
+    display: block;
+    padding-left: 15px;
+}
+.sidebar ul li li {
+
+}
+.sidebar ul li li a{
+
+}
+.main_content{
+
+float:  left;
+
+width:  85%;
+}
+
+
+
+input[name="title_txt"]
+{
+    width: 45%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+input[name="submit_btn"]
+{
+    width: 20%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+
+.main_content
+{
+    text-align: center;
+}
+
+

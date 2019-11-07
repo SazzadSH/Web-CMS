@@ -1,0 +1,471 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: lato;
+}
+h1,h2,h3,h4,h5,h6{
+    text-decoration: none;
+    margin-bottom: 15px;
+}
+a{
+    text-decoration: none;
+}
+body{
+    border-top: 5px solid #5c6bc0;
+    background:  url("../img/back.png") repeat fixed;
+}
+.header{
+    width: 960px;
+    margin: 0 auto;
+    height: 150px;
+    margin-top: 30px;
+}
+.header h2{
+    color:#333333;
+    font-size: 42px;
+    font-family: lato;
+    font-style: italic;
+    font-weight: bold;
+}
+.navigation ul li a{
+    font-weight: bold;
+    font-family: lato;
+    font-size: 16px;
+    color: #333333;
+    text-transform: uppercase;
+}
+.navigation ul li a:hover{
+    color: #5c6bc0;
+}
+.searchBoxBtn{
+    background-color: #5c6bc0;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.searchBoxBtn:hover{
+    background-color: #ffffff;
+    color: #5c6bc0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.mainBody{
+    display: block;
+    width: 960px;
+    margin: 0 auto;
+    
+}
+.posts{
+    background-color: #ffffff;
+    margin-bottom: 50px;
+    border-radius: 5px;
+    padding: 100px;
+    box-shadow: 1px 1px 1px 2px #bdbdbd;
+    
+}
+.dt{
+    height: 40px;
+    width: 90%;
+    float: left;
+    overflow: hidden;
+    display: block;
+}
+.dt p {
+    color: #bdbdbd;
+    font-weight: bold;
+    font-family: lato;
+    font-size: 14px;
+}
+.cat{
+    height: 40px;
+    width: 10%;
+    float: right;
+    background-color: #5c6bc0;
+    overflow: hidden;
+    display: block;
+    position: absolute;
+    margin-left: 750px;
+}
+.cat p{
+    text-align: center;
+    padding-top: 5px;
+    height: 30px;
+    font-weight: bold;
+    font-family: lato;
+    font-size: 14px;
+    color: #ffffff;
+    margin-top:5px ; 
+    
+}
+.posts h3{
+    color: #000000;
+    font-weight: bold;
+    font-family: lato;
+    font-size: 40px;
+    margin-bottom: 60px;
+}
+.postHead h3 a{
+    color: #000000;
+    font-weight: bold;
+    font-family: lato;
+    font-size: 40px;
+    margin-bottom: 60px;
+}
+
+.postHead h3 a:hover{
+    color: #000000;
+    font-weight: bold;
+    font-family: lato;
+    font-size: 40px;
+    margin-bottom: 60px;
+}
+
+.postHead h3 a:visited{
+    color: #000000;
+    font-weight: bold;
+    font-family: lato;
+    font-size: 40px;
+    margin-bottom: 60px;
+}
+.posts img{
+    height: 300px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.postBody p{
+    color: #585858;
+    font-weight: normal;
+    font-family: lato;
+    font-size: 17px;
+    margin-bottom: 30px;
+}
+.postBody blockquote{
+    color: #585858;
+    font-weight: bold;
+    font-family: lato;
+    font-size: 18px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+.postFooter a{
+    width: 50%;
+    height:40px;
+    float: left;
+    color: #5c6bc0;
+    font-weight: bold;
+    font-family: lato;
+    font-size: 21px;
+    text-transform: uppercase;
+}
+.postFooter p{
+    text-align: right;
+    color: #d2d2d2;
+    font-weight: normal;
+    font-family: lato;
+    font-size: 15px;
+}
+.postFooter .share{
+    width: 50%;
+    float: left;
+    color: #5c6bc0;
+
+}
+.postFooter .share a{
+    width: 20px;
+    font-size: 30px;
+    margin-right: 20px;
+}
+.footer{
+    text-align: center;
+    overflow:hidden;
+    background-color: #5c6bc0;
+    color:#ffffff;
+}
+.footerSite{
+    margin-top: 30px;
+    color: #4f5ca6;
+    font-weight: bold;
+    font-family: lato;
+    font-size: 36px;
+    display: block;
+    overflow: hidden;
+}
+.footerNav{
+    height: 50px;
+    width: 960px;
+    margin: 0 auto;
+}
+.footerNav ul {
+    margin: 0;
+    list-style: none;
+    width: 350px;
+    margin: 0 auto;
+    
+}
+.footerNav ul li{
+    float: left; 
+}
+.footerNav ul li a{
+    display: block;
+    width:70px; 
+    height: 20px;
+    padding: 18px;
+    font-weight: bold;
+    font-family: lato;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+.footerNav ul li a:hover{
+    text-decoration: underline;   
+}
+.footerNav ul li a:active{
+    color: #bdbdbd;
+}
+.footerNav hr{
+    color: #4f5ca6;
+    width: 100%;
+}
+.copy{
+    margin-top: 20px;
+}
+.copy p{
+    color: #a9afdb;
+    font-weight: bold;
+    font-family: lato;
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-top: 40px;
+}
+ 
+.comment{
+
+}
+.comment hr{
+    margin:30px 0px;
+    width: 100%; 
+    border-color: #a9afdb;
+}
+.commentEntry{
+
+}
+.commentBox{
+    min-height: 300px;
+}
+.commentBox input[type=text] {
+    width: 100%;
+    padding: 12px 0px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.commentBox textarea {
+    width: 100%;
+    padding: 12px 0px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.commentBox input[type=submit] {
+    overflow:hidden;
+    width: 20%;
+    float: right;
+    background-color: #5c6bc0;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 50px;
+}
+
+.commentBox input[type=submit]:hover {
+    background-color: #a9afdb;
+    color: #5c6bc0;
+}
+.comments{
+    border-bottom: 1px solid #a9afdb;
+    margin-bottom: 10px;
+}
+
+.comments span{
+    color: #585858;
+    font-weight: bold;
+    font-family: lato;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.comments p{
+    color: #585858;
+    font-weight: normal;
+    font-family: lato;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+.comments small{
+    color: #585858;
+    font-weight: bold;
+    font-family: lato;
+    font-size: 10px;
+    align: right;
+    margin-bottom: 30px;
+}
+.contactForm input[type=text] {
+    width: 100%;
+    padding: 12px 0px;
+    display: inline-block;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    margin-bottom: 30px;
+    font-weight: bold;
+    font-family: lato;
+    font-size: 20px;
+}
+
+.contactForm input[type=submit] {
+    width: 20%;
+    float: right;
+    background-color: #ffffff;
+    color: #5c6bc0;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 30px;
+    font-weight: bold;
+    font-family: lato;
+    font-size: 20px;
+}
+
+.contactForm input[type=submit]:hover {
+    background-color: #a9afdb;
+    color: #5c6bc0;
+}
+.result{
+    background-color: #ffffff;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    padding: 50px;
+    box-shadow: 1px 1px 1px 2px #bdbdbd;
+}
+.result h3{
+    color: #000000;
+    font-weight: bold;
+    font-family: lato;
+    font-size: 30px;
+}
+.pageNo{
+    height: 40px;
+    width: 960px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+.pagination{
+    height: 40px;
+    width: 440px;
+    margin: 0 auto;
+}
+.pagination a {
+    text-align: center;
+    color: #333333;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    font-weight: bold;
+    font-family: lato;
+    font-size: 20px;
+}
+.pagination a.active {
+    background-color: dodgerblue;
+    color: white;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+.adminBody{
+    display: block;
+    width: 960px;
+    margin: 0 auto;
+}
+.tabs{
+    position: relative;   
+    min-height: 600px;
+    clear: both;
+    margin: 25px 0;
+}
+
+.tab {
+  float: left;
+}
+.tab label {
+  background: #eee; 
+  padding: 10px; 
+  border: 1px solid #ccc; 
+  margin-left: -1px; 
+  position: relative;
+  left: 1px; 
+}
+.tab [type=radio] {
+  display: none;   
+}
+.content {
+  position: absolute;
+  top: 28px;
+  left: 0;
+  background: white;
+  right: 0;
+  bottom: 0;
+  padding: 20px;
+  border: 1px solid #ccc; 
+}
+[type=radio]:checked ~ label {
+  background: white;
+  border-bottom: 1px solid white;
+  z-index: 2;
+}
+[type=radio]:checked ~ label ~ .content {
+  z-index: 1;
+}
+.footerAdmin{
+    text-align: center;
+    overflow:hidden;
+    height: 50px;
+    background-color: #5c6bc0;
+    color:#ffffff;
+}
+.copyAdmin{
+    height: 30px;
+    margin-top: 15px;
+}
+.copy p{
+    color: #a9afdb;
+    font-weight: bold;
+    font-family: lato;
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-top: 5px;
+}
+.logout a{
+    width: 10%;
+    float: right;
+    background-color: #5c6bc0;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 30px;
+}

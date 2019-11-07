@@ -1,162 +1,78 @@
 <?php
-  session_start();
-?>
+    $con = mysqli_connect("localhost","root","","blog_cms");
 
-<?php
+    if (mysqli_connect_errno())
+    {
+        echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    }
+    else{
+        $sql = "SELECT * FROM posts WHERE is_active=1;";
+        $result = $con->query($sql);
+    }
 
-  if(isset($_SESSION['username']))
-  {
-      header("Location: ./dashboard.php");
-  }
-
-  $username = "";
-  $password = "";
-  $uname_error = "";
-  $password_error = "";
-  $login_error = "";
-
-  if(isset($_POST['logSubmit']))
-  {
-      $username = $_POST['username'];
-      $password = $_POST['password'];
-
-      if(empty($username) || (strlen($username) < 4))
-      {
-          $uname_error = "Invalid Username!";
-      }
-
-      if(empty($password) || (strlen($password) < 4))
-      {
-          $password_error = "Invalid Password";
-      }
-
-      
-
-      if($uname_error == "" && $password_error == "")
-      {
-          $sql = "select user_id, username, email, password, user_type_id, is_active from users where username='".$username."'"; 
-          $con = mysqli_connect("localhost", "root", "", "blog_cms");
-
-          if(!$con)
-          {
-              die("Connection failed: " . mysqli_connect_error());
-          }
-
-          $result = mysqli_query($con, $sql);
-
-          $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-
-          if($row['username'] != $username)
-          {
-              $uname_error = "Username is not registered!";
-              $username = "";
-          }
-          else if($row['password'] != $password)
-          {
-              $password_error = "Password did not match!";
-          }
-          else if($row['username'] == $username && $row['password'] == $password)
-          {
-              $_SESSION['username'] = $username;
-              $_SESSION['user_id'] = $row['user_id'];
-              $_SESSION['email'] = $row['email'];
-              $_SESSION['user_type_id'] = $row['user_type_id'];
-              $_SESSION['is_active'] = $row['is_active'];
-
-              if(isset($_POST['remember']))
-              {
-                  setcookie("username", $username, time()+(60*60*24*7));
-                  setcookie("password", $password, time()+(60*60*24*7));
-              }
-              else
-              {
-                  setcookie("username", "");
-                  setcookie("password", "");
-              }
-              header("Location: ./dashboard.php");
-          }
-          else
-          {
-              $login_error = "Login Failed! Try again.";
-          }
-      }
-  }
-  else if(isset($_COOKIE['username']) && isset($_COOKIE['password']))
-  {
-      $username = $_COOKIE['username'];
-      $password = $_COOKIE['password'];
-
-      if($username != "" && $password != "")
-      {
-          $sql = "select user_id, username, email, password, user_type_id, is_active from users where username='".$username."'"; 
-          $con = mysqli_connect("localhost", "root", "", "blog_cms");
-
-          $result = mysqli_query($con, $sql);
-
-          $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-
-
-          $_SESSION['username'] = $username;
-          $_SESSION['user_id'] = $row['user_id'];
-          $_SESSION['email'] = $row['email'];
-          $_SESSION['user_type_id'] = $row['user_type_id'];
-          $_SESSION['is_active'] = $row['is_active'];
-
-          header("Location: ./dashboard.php");
-      }
-  }
-
-  
-
-  if(isset($_GET['active']) && $_GET['active'] == 0)
-  {
-      $login_error = "User account is not activated!";   
-  }
-
+    include_once "header.php";
 ?>
 
 <!DOCTYPE html>
-<html lang="en" >
+<html>
 
-<head>
-  <meta charset="UTF-8">
-  <title>Login</title>
-  <link rel="stylesheet" href="assets/css/entry-style.css">
-</head>
 
-  <body>
+    <body>
+        <div class="mainBody">
+            <?php 
+                if ($result->num_rows > 0) {
 
-    <div class="login-page">
-      <div class="form">
-        <?php 
-            if(!empty($login_error))
-            {
-              echo "<p class=\"error\">".$login_error."</p>";
-            }
+                    foreach ($result as $row) {
+            ?>
+            <div class="posts">
+                <div class="postHead">
+                    <div class="dt"><p><?php echo strtok($row["created_date"], ' '); ?></p></div>
+                    <div class="cat">
+                        <p> <?php
+                                $sql="SELECT c.category_name FROM category c, post_category p WHERE c.category_id=p.category_id AND p.post_id='".$row['post_id']."';";
+                                //$sql = "SELECT category.category_name FROM category INNER JOIN post_category WHERE post_category.post_id=".$row["post_id"].";";
+                                $cat = $con->query($sql);
+                                if ($cat->num_rows > 0) {
+                                    foreach ($cat as $catT) {
+                                        echo $catT['category_name'];
+                                    }
+                                }else{
+                                    echo "No Catagory";
+                                }
+                            ?>
+                        </p>
+                    </div>
+                    <h3><a href="post.php?id=<?php echo $row["post_id"]; ?>"><?php echo '<br>'.$row["title"] ;?></a></h3>
+                </div>
+                <div class="postBody"><p><?php echo explode("<div style=\"page-break-after:always\"><span style=\"display:none\">&nbsp;</span></div>",$row['body'])[0]."..." ;?></p>
+                </div>
+                <div class="postFooter">
+                    <a href="post.php?id=<?php echo $row["post_id"]; ?>">READ MORE</a>
+                    <p>
+                        <?php
+                                $sql = "SELECT tag_name FROM tags WHERE post_id=".$row["post_id"].";";
+                                $tag = $con->query($sql);
+                                if ($tag->num_rows > 0) {
+                                    foreach ($tag as $tagT) {
+                                        echo $tagT['tag_name']." ";
+                                    }
+                                }else{
+                                    echo "No Tags";
+                                }
+                            ?>
+                    </p>
+                </div>
+            </div>
+            <?php 
+                    }
+                }
+                else{
+                    echo "<div class='posts'><h3>So Empty!!! Create New Post</h3></div></div>";
+                } 
+            ?>
+        </div>
+        <?php
+            include_once "footer.php"; 
         ?>
-        <h2 class="headline">Login Panel</h2>
-        <form class="login-form" method="POST" action="">
-          <?php 
-            if(!empty($uname_error))
-            {
-              echo "<p class=\"error\">".$uname_error."</p>";
-            }
-          ?>
-          <input class="textInput" name="username" value="<?php echo $username; ?>" type="text" placeholder="Username"/>
-          <?php 
-            if(!empty($password_error))
-            {
-              echo "<p class=\"error\">".$password_error."</p>";
-            }
-          ?>
-          <input class="textInput" name="password" type="password" placeholder="Password"/>
-          <input type="checkbox" name="remember" value="1"> Remember Me<br>
-          <input type="submit" class="regsubmit" name="logSubmit" value="Sign Up">
-          <p class="message">Not registered? <a href="registration.php">Create an account</a></p>
-        </form>
-      </div>
-    </div>
-
-  </body>
-
+    </body>
 </html>
