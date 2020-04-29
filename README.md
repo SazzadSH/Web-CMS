@@ -26,5 +26,5 @@ git clone https://github.com/SazzadSH/Web-CMS
 ## Screenshots
 
 ### FrontEnd
-<img src="/scrrenshots/1.png">
+<img src="screenshots/1.png">
 ### BackEnd
